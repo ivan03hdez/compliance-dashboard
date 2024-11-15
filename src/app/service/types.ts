@@ -6,12 +6,12 @@ export interface Project {
 
 export interface EvaluationResult {
     id: number;
-    accuracy: number;
-    datasetName: string;
-    helpfulness: number;
     projectName: string;
+    systemName: string;
+    datasetName: string;
+    accuracy: number;
+    helpfulness: number;
     relevancy: number;
     score: number;
-    systemName: string;
     toxicity: number;
 }
