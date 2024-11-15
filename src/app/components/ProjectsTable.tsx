@@ -1,10 +1,10 @@
 "use client";
 
 import { useRouter } from 'next/navigation';
-import {CheckCircle, AlertCircle, Code, ChevronRight, ChevronDown} from 'lucide-react';
+import { CheckCircle, AlertCircle, Code, ChevronRight, ChevronDown } from 'lucide-react';
 import type { EvaluationResult, Project } from '@/app/service/types';
 import EvaluationResultExpandedRow from "@/app/components/EvaluationResultExpandedRow";
-import React, {useState} from "react";
+import React, { useState } from "react";
 
 interface ProjectsTableProps {
     projects: Project[];
@@ -13,14 +13,14 @@ interface ProjectsTableProps {
 
 export default function ProjectsTable({ projects, evaluationResults }: ProjectsTableProps) {
     const router = useRouter();
-    const [expandedProjects, setExpandedProjects] = useState<string[]>([]);
+    const [ expandedProjects, setExpandedProjects ] = useState<string[]>([]);
 
 
     const toggleProject = (projectName: string) => {
         setExpandedProjects(prev =>
             prev.includes(projectName)
                 ? prev.filter(p => p !== projectName)
-                : [...prev, projectName]
+                : [ ...prev, projectName ]
         );
     };
 
@@ -56,7 +56,7 @@ export default function ProjectsTable({ projects, evaluationResults }: ProjectsT
                         className="hover:bg-gray-50 transition-colors duration-150">
                     <td className="px-6 py-4 whitespace-nowrap">
                         <button
-                            onClick={(e) => toggleProject(project.name)}
+                            onClick={() => toggleProject(project.name)}
                             className="p-1 hover:bg-gray-100 rounded-full transition-colors duration-150 inline-flex"
                         >
                             {expandedProjects.includes(project.name) ? (
